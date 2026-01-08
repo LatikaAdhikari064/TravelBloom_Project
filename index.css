@@ -1,0 +1,201 @@
+/* --- General Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: absolute; /* Sits transparently over the hero image */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+    z-index: 100; /* Ensures nav is above everything */
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #E07A5F; /* Coral accent color */
+}
+
+/* --- Hero Section & Background Image --- */
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* The Background Image with a slight dark overlay so text pops */
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
+                url('https://www.pixelstalk.net/wp-content/uploads/2016/08/HD-World-Travel-Desktop-Background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    width:900px;
+}
+
+/* --- Search Bar & Button Styling --- */
+.search-container-main {
+    position: relative;
+    width: 700px; /* Fixed width for the search area */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* The white container holding input and button */
+.search-bar-wrapper {
+    background: white;
+    padding: 8px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.search-icon {
+    color: #888;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+/* The actual input field */
+#searchInput {
+    flex-grow: 1; /* Takes up remaining space */
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 1rem;
+    background: transparent;
+    color: #333;
+}
+
+/* The "Book Now" Button */
+.btn-book {
+    background-color: #E07A5F; /* Coral color matched from image */
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-book:hover {
+    background-color: #c66a50;
+    transform: translateY(-2px);
+}
+
+/* --- Dynamic Results Dropdown --- */
+.results-dropdown {
+    position: absolute;
+    top: 110%; /* Creates a small gap below search bar */
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    padding: 10px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: none; /* Hidden initially */
+    text-align: left;
+    color: #333;
+    max-height: 300px;
+    overflow-y: auto; /* Scroll if too many results */
+    z-index: 90;
+}
+
+.result-item {
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-item:hover {
+    background-color: #f5f5f5;
+    color: #E07A5F;
+}
+
+/* --- Social Sidebar --- */
+.social-sidebar {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 10;
+}
+
+.social-sidebar a {
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.social-sidebar a:hover {
+    opacity: 1;
+    color: #E07A5F;
+    transform: scale(1.1);
+}
+
+/* --- Responsive Tweak (Simple example) --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3rem; }
+    .search-container-main { width: 90%; }
+    .btn-book { padding: 12px 20px; }
+    .social-sidebar { display: none; /* Hide sidebar on small screens */ }
+    .navbar { padding: 20px; }
+}
