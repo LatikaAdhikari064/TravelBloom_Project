@@ -1,201 +1,221 @@
-/* --- General Reset & Typography --- */
+/* GLOBAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* --- Navigation Bar --- */
+/* NAVBAR */
 .navbar {
-    position: absolute; /* Sits transparently over the hero image */
+    position: fixed;
     top: 0;
     width: 100%;
+    padding: 15px 40px;
+    background: rgb(255, 255, 255);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 25px 60px;
-    z-index: 100; /* Ensures nav is above everything */
-    color: white;
+    justify-content: space-between;
+    z-index: 1000;
 }
 
 .logo {
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: 600;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-links a {
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #E07A5F; /* Coral accent color */
+.nav-links a.active {
+    color: #E07A5F;
 }
 
-/* --- Hero Section & Background Image --- */
-.hero-section {
-    height: 100vh;
-    width: 100%;
-    position: relative;
+/* SEARCH */
+.nav-search {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 8px;
+}
+
+.nav-search input {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.nav-search button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #E07A5F;
     color: white;
-    /* The Background Image with a slight dark overlay so text pops */
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
-                url('https://www.pixelstalk.net/wp-content/uploads/2016/08/HD-World-Travel-Desktop-Background.jpg');
+    cursor: pointer;
+}
+
+/* MAIN SECTION (LANDING + RESULTS) */
+.hero-section {
+    margin-top: 80px;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero-content {
+    max-width: 1000px;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* RESULTS */
+.results-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    color: #333;
+    width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 15px;
+    font-weight: 600;
+}
+
+/* FULL PAGE THEMES */
+.beach-theme {
+    background:linear-gradient(rgba(145, 163, 170, 0.7), rgba(159, 164, 167, 0.7)),    
+       url("https://cdn.pixabay.com/photo/2022/07/02/19/06/maldives-7297883_1280.jpg");
     background-size: cover;
     background-position: center;
 }
 
-.hero-content h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+.country-theme {
+    background:linear-gradient(rgba(145, 163, 170, 0.7), rgba(159, 164, 167, 0.7)),
+        url("https://globalgrasshopper.com/wp-content/uploads/2011/01/Gadi-Sagar.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.temple-theme{
+    background:linear-gradient(rgba(145, 163, 170, 0.7), rgba(159, 164, 167, 0.7)), url("https://www.bagpack2go.com/admin/webroot/img/uploads/blog/1675756459_455561-Untitled%20design%20(4).png");
+      background-size: cover;
+    background-position: center;
+    
+}
+.no-result-theme {
+    background: #222;
+}
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-search {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-    opacity: 0.9;
-    width:900px;
-}
+/* Mobile */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* --- Search Bar & Button Styling --- */
-.search-container-main {
-    position: relative;
-    width: 700px; /* Fixed width for the search area */
-    margin: 0 auto; /* Center horizontally */
-}
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+    }
 
-/* The white container holding input and button */
-.search-bar-wrapper {
-    background: white;
-    padding: 8px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
+    .nav-search {
+        flex-direction: column;
+        width: 100%;
+    }
 
-.search-icon {
-    color: #888;
-    margin-left: 20px;
-    font-size: 1.1rem;
-}
+    .nav-search input,
+    .nav-search button {
+        width: 100%;
+    }
 
-/* The actual input field */
-#searchInput {
-    flex-grow: 1; /* Takes up remaining space */
-    border: none;
-    outline: none;
-    padding: 15px;
-    font-size: 1rem;
-    background: transparent;
-    color: #333;
-}
+    .hero-section {
+        padding: 20px;
+    }
 
-/* The "Book Now" Button */
-.btn-book {
-    background-color: #E07A5F; /* Coral color matched from image */
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    border-radius: 40px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
-}
+    .hero-content h1 {
+        font-size: 2rem;
+    }
 
-.btn-book:hover {
-    background-color: #c66a50;
-    transform: translateY(-2px);
-}
+    .hero-content p {
+        font-size: 1rem;
+    }
 
-/* --- Dynamic Results Dropdown --- */
-.results-dropdown {
-    position: absolute;
-    top: 110%; /* Creates a small gap below search bar */
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 20px;
-    padding: 10px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    display: none; /* Hidden initially */
-    text-align: left;
-    color: #333;
-    max-height: 300px;
-    overflow-y: auto; /* Scroll if too many results */
-    z-index: 90;
-}
+    .results-container {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-.result-item {
-    padding: 12px 25px;
-    cursor: pointer;
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.result-item:hover {
-    background-color: #f5f5f5;
-    color: #E07A5F;
-}
-
-/* --- Social Sidebar --- */
-.social-sidebar {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    z-index: 10;
-}
-
-.social-sidebar a {
-    color: white;
-    font-size: 1.2rem;
-    transition: 0.3s;
-    opacity: 0.8;
-}
-
-.social-sidebar a:hover {
-    opacity: 1;
-    color: #E07A5F;
-    transform: scale(1.1);
-}
-
-/* --- Responsive Tweak (Simple example) --- */
-@media (max-width: 768px) {
-    .hero-content h1 { font-size: 3rem; }
-    .search-container-main { width: 90%; }
-    .btn-book { padding: 12px 20px; }
-    .social-sidebar { display: none; /* Hide sidebar on small screens */ }
-    .navbar { padding: 20px; }
+    .card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }

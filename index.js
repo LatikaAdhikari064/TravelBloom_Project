@@ -1,80 +1,131 @@
-// 1. Sample Data Source (In a real app, this would come from a database/API)
-const destinations = [
-    { name: "Bali, Indonesia", icon: "fa-umbrella-beach" },
-    { name: "Kyoto, Japan", icon: "fa-torii-gate" },
-    { name: "Santorini, Greece", icon: "fa-water" },
-    { name: "Machu Picchu, Peru", icon: "fa-mountain" },
-    { name: "Banff National Park, Canada", icon: "fa-tree" },
-    { name: "Maui, Hawaii", icon: "fa-sun" },
-    { name: "Rome, Italy", icon: "fa-landmark" },
-    { name: "Cairo, Egypt", icon: "fa-gopuram" },
-    { name: "Reykjavik, Iceland", icon: "fa-icicles" },
-    { name: "Queenstown, New Zealand", icon: "fa-hiking" }
-];
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const clearBtn = document.getElementById("clearBtn");
+const mainSection = document.getElementById("mainSection");
 
-// 2. Get DOM Elements
-const searchInput = document.getElementById('searchInput');
-const resultsList = document.getElementById('searchResultsList');
+searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.toLowerCase().trim();
 
-// 3. Event Listener for typing
-searchInput.addEventListener('keyup', (e) => {
-    // Get the current value and convert to lowercase for case-insensitive comparison
-    const searchString = e.target.value.toLowerCase();
+    if (!query) return;
 
-    // If input is empty, hide results and return
-    if(searchString === "") {
-       resultsList.style.display = "none";
-       resultsList.innerHTML = "";
-       return;
-    }
+    // BEACH
+    if (query.includes("beach")) {
+    mainSection.className = "hero-section beach-theme";
+    mainSection.innerHTML = `
+        <div class="hero-content">
+            <h1>Relaxing Beach Destinations</h1>
+            <p>
+                Explore world-famous beaches known for their beauty, calm waters,
+                and unforgettable coastal experiences.
+            </p>
 
-    // 4. Filtering Logic based on name
-    const filteredDestinations = destinations.filter( place => {
-        return place.name.toLowerCase().includes(searchString);
-    });
+            <div class="results-container">
+                <div class="card">
+                    <img src="https://maldives-magazine.com/pictures/baglioni-restort-maldives-pool-beach.jpg">
+                    <p>Maldives Beach — Maldives</p>
+                </div>
 
-    // 5. Render Results based on filter
-    displayResults(filteredDestinations);
-});
+                <div class="card">
+                    <img src="https://www.adotrip.com/public/images/areas/master_images/60d0813807aff-Baga_Beach_In_Goa.jpg">
+                    <p>Baga Beach — India</p>
+                </div>
 
+                <div class="card">
+                    <img src="https://www.bing.com/th/id/OIP.Uy_yrJBBo7VznVghGFXaegHaEZ?w=240&h=211&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2">
+                    <p>Bondi Beach — Australia</p>
+                </div>
 
-// Function to generate HTML for suggestions
-const displayResults = (results) => {
-    // If no results match the typing
-    if(results.length === 0) {
-        resultsList.innerHTML = '<div class="result-item" style="pointer-events: none;">No destinations found.</div>';
-    } else {
-         // Map through results and create HTML list items with icons
-        const htmlString = results.map( place => {
-            return `
-            <div class="result-item" onclick="selectDestination('${place.name}')">
-                <i class="fas ${place.icon}" style="color: #ccc;"></i>
-                <span>${place.name}</span>
+                <div class="card">
+                    <img src="https://www.thedailymeal.com/sites/default/files/2018/01/17/Copacabana%20Beach.Dreamstime.jpg">
+                    <p>Copacabana Beach — Brazil</p>
+                </div>
             </div>
-            `;
-        }).join('');
-        
-        resultsList.innerHTML = htmlString;
-    }
+        </div>
+    `;
+}
+else if (query.includes("country")) {
+    mainSection.className = "hero-section country-theme";
+    mainSection.innerHTML = `
+        <div class="hero-content">
+            <h1>Beautiful Countries to Explore</h1>
+            <p>
+                Discover diverse cultures, breathtaking landscapes,
+                and unique traditions across the world.
+            </p>
 
-    // Make the dropdown visible
-    resultsList.style.display = "block";
-};
+            <div class="results-container">
+                <div class="card">
+                    <img src="https://wallpaperaccess.com/full/1455073.jpg">
+                    <p>Switzerland</p>
+                </div>
 
-// Helper function when user clicks a result
-function selectDestination(destinationName) {
-    searchInput.value = destinationName;
-    resultsList.style.display = "none";
-    // In a real app, this would redirect to a results page
-    console.log("User selected:", destinationName);
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/OIP.3fNCxl9G245KgHiUbPC51QHaE8?w=320&h=180&c=7&r=0&o=7&cb=defcachec2&pid=1.7&rm=3">
+                    <p>Japan</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.bing.com/th/id/OIP.y_l2lm510yM5dUbkMuls0QHaE7?w=237&h=211&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2">
+                    <p>India</p>
+                </div>
+
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/OIP.FWv5huAUErHra-OJHsLGwwHaEK?w=331&h=180&c=7&r=0&o=7&cb=defcachec2&pid=1.7&rm=3">
+                    <p>New Zealand</p>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 
-// Bonus: Hide dropdown if clicking outside the search area
-document.addEventListener('click', (e) => {
-    const searchContainer = document.querySelector('.search-container-main');
-    // If the click happened outside the search container block
-    if (!searchContainer.contains(e.target)) {
-         resultsList.style.display = "none";
+    else if (query.includes("temple")) {
+    mainSection.className = "hero-section temple-theme";
+mainSection.innerHTML = `
+    <div class="hero-content">
+        <h1>Spiritual Temples</h1>
+        <p>
+            Uttarakhand, known as Devbhoomi, is home to sacred temples nestled
+            in the Himalayas, offering peace, spirituality, and divine energy.
+        </p>
+
+        <div class="results-container">
+            <div class="card">
+                <img src="https://th.bing.com/th/id/R.e87a0facfb064e02d4693c2af9393b28?rik=4xZV7MIOG9hn6A&riu=http%3a%2f%2fbontravelindia.com%2fwp-content%2fuploads%2f2021%2f10%2fKedarnath-Temple-Uttarakhand.jpg&ehk=dp3z53tRguJAd37gcVV9MmDdeZ%2fkm%2f1tBDgVYl3hkcg%3d&risl=&pid=ImgRaw&r=0">
+                <p>Kedarnath Temple</p>
+            </div>
+
+            <div class="card">
+                <img src="https://majesticjourney.in/wp-content/uploads/2020/05/badrinath-temple.jpg">
+                <p>Badrinath Temple</p>
+            </div>
+
+            <div class="card">
+                <img src="https://www.templepurohit.com/wp-content/uploads/2016/10/Gangotri-Temple-Gangotri-Dham-Travel-Info-Photos-History-e1476332078425.jpg">
+                <p>Gangotri Temple</p>
+            </div>
+
+            <div class="card">
+                <img src="https://1.bp.blogspot.com/-xs6z8TayJtY/Xyq8qfj4rOI/AAAAAAAAAus/66oQ9FL6ItwY2OVNPiL0qE3KorlRLb4DACLcBGAsYHQ/s1600/yamunotri-yamunotri-temple-149442069564-orijgp.jpg">
+                <p>Yamunotri Temple</p>
+            </div>
+        </div>
+    </div>
+`;
     }
+    // NO RESULT
+    else {
+        mainSection.className = "hero-section no-result-theme";
+        mainSection.innerHTML = `
+            <div class="hero-content">
+                <h1>No Results Found</h1>
+                <p>Please search for <strong>beach</strong> or <strong>country</strong>.</p>
+            </div>
+        `;
+    }
+});
+
+clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    location.reload();
 });

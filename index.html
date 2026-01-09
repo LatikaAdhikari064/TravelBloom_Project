@@ -4,46 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelBloom</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-plane-departure"></i> TravelBloom
-        </div>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">✈ TravelBloom</div>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>EXPLORE THE UNSEEN</h1>
-            <p class="subtitle">TravelBloom is a modern, web-based travel platform designed to move beyond standard tourism. Unlike generic booking sites that focus on crowded hotspots, TravelBloom is dedicated to cultural immersion and off-the-beaten-path adventures. It connects travelers with curated destinations, local guides, and unique experiences that allow them to truly feel the essence of a place.</p>
-            
-            <div class="search-container-main">
-                <div class="search-bar-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="searchInput" placeholder="Enter destination or keyword..." autocomplete="off">
-                    <button class="btn-book">BOOK NOW</button>
-                </div>
-                
-                <div id="searchResultsList" class="results-dropdown"></div>
-            </div>
-        </div>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
 
-        <div class="social-sidebar">
-            <a href="index.html"><i class="fab fa-facebook-f"></i></a>
-            <a href="about.html"><i class="fab fa-instagram"></i></a>
-            <a href="contact.html"><i class="fab fa-twitter"></i></a>
-        </div>
-    </section>
+    <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search beach or country">
+        <button id="searchBtn">Search</button>
+        <button id="clearBtn">Clear</button>
+    </div>
+</nav>
 
-    <script src="index.js"></script>
+<!-- MAIN DISPLAY AREA -->
+<section id="mainSection" class="hero-section">
+    <div class="hero-content">
+        <h1>EXPLORE THE UNSEEN</h1>
+        <p>
+           TravelBloom is a web-based travel platform built to inspire meaningful journeys. It offers destination recommendations with visuals and descriptions, helping users discover places beyond typical tourist routes.
+        </p>
+    </div>
+</section>
+
+<script src="index.js"></script>
 </body>
 </html>

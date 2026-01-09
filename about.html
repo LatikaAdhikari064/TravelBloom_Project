@@ -23,52 +23,59 @@
             --text-dark: #333;
             --text-light: #666;
         }
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 40px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
 
-        /* 2. White Navigation Bar */
-        .navbar-white {
-            background-color: #ffffff;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow for separation */
-            position: relative;
-            z-index: 1000;
-        }
+.logo {
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: black;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+.nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: black; /* Black text as requested */
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
+.nav-links a.active {
+    color: #E07A5F;
+}
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+/* SEARCH */
+.nav-search {
+    display: flex;
+    gap: 8px;
+}
 
-        /* Active State (Same as website color) */
-        .nav-links a.active {
-            color: var(--primary-color);
-        }
+.nav-search input {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
 
+.nav-search button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #E07A5F;
+    color: white;
+    cursor: pointer;
+}
         /* 3. Page Header (Hero) */
         .page-header {
             height: 50vh;
@@ -187,17 +194,21 @@
 </head>
 <body>
 
-    <nav class="navbar-white">
-        <div class="logo">
-            <i class="fas fa-plane-departure"></i> TravelBloom
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+   <nav class="navbar">
+    <div class="logo">✈ TravelBloom</div>
 
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <!-- <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search beach or country">
+        <button id="searchBtn">Search</button>
+        <button id="clearBtn">Clear</button>
+    </div> -->
+</nav>
     <!-- <header class="page-header">
         <h1>About Us</h1>
     </header> -->

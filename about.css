@@ -148,43 +148,58 @@ body {
 .team-card .role {
     color: #888;
     font-size: 0.9rem;
-}
-/* --- Navigation Bar --- */
-.navbar {
-     position: fixed;
+}.navbar {
+    position: fixed;
     top: 0;
     width: 100%;
     padding: 15px 40px;
+    background: rgb(255, 255, 255);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgb(0, 0, 0);
-    backdrop-filter: blur(8px);
+    justify-content: space-between;
     z-index: 1000;
 }
 
 .logo {
+    color: rgb(0, 0, 0);
     font-size: 1.5rem;
     font-weight: 600;
-    color: rgb(255, 255, 255);
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
 }
 
 .nav-links a {
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: 400;
-    transition: color 0.3s;
 }
 
-.nav-links a:hover,
 .nav-links a.active {
     color: #E07A5F;
+}
+
+/* SEARCH */
+.nav-search {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-search input {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.nav-search button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #E07A5F;
+    color: white;
+    cursor: pointer;
 }
 
 /* Responsive for Mobile */
